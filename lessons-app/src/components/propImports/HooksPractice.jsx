@@ -49,7 +49,7 @@ const HooksPractice = () => {
       <h3>Increment / Decrement Count</h3>
       <button type="button" className="btn btn-info" onClick={decrementCount} >-</button>
       <span>{count}</span>
-      <sapn>{theme}</sapn>
+      <span>{theme}</span>
       <button type="button" className="btn btn-warning" onClick={incrementCount} >+</button>
       <br />
       <br />

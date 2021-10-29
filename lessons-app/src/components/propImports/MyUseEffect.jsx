@@ -7,22 +7,35 @@ function MyUseEffect() {
   const [items, setItems] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const [minVal, setMinVal] = useState(0);
+  const [maxVal, setMaxVal] = useState(10);
+  const [first10, setFirst10] = useState(minVal, maxVal);
+
+  const handleFirstTenBtn = () => {
+    setFirst10(minVal, maxVal);
+  }
+
+  const linkUseEffect = 'https://youtu.be/0ZJgIjIuY7U';
+
   
   useEffect(() => {
+    console.log('resource changed');
     fetch( `https://jsonplaceholder.typicode.com/${resourceType}`)
       .then(response => response.json())
       .then(json => setItems(json))
-  }, [resourceType]);
+      console.log('return from resource change');
+  }, [resourceType] );
   
-
   const handleResize = (() => {
     setWindowWidth(window.innerWidth);
   });
 
   useEffect(() => {
+    console.log('resource changed');
     window.addEventListener('resize', handleResize);
 
     return () => {
+      console.log('return from resource change')
       window.removeEventListener('resize', handleResize);
     }
   }, [] );
@@ -30,16 +43,29 @@ function MyUseEffect() {
   return (
     <>
       <div>
-        <h1>******USE EFFECTS*******</h1>
+        <h1>Use Effects and Cleanup</h1>
+        <a href={linkUseEffect} >Use Effect video link</a>
+        <br/>
+        <br/>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('posts')} >Posts</button>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('users')} >Users</button>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('comments')} >Comments</button>
+
+        <p>
+            First Ten: <span> <h1>{first10}</h1></span>
+          </p>
+        <p>Min: {minVal}</p>
+        <input type='number' value={minVal} onChange={(e) => setMinVal(e.target.value)} ></input>
+        <p>Max: {maxVal}</p>
+        <input type="number" value={maxVal} onChange={(e) => setMaxVal(e.target.value)} ></input>
+        <button onClick={(e) => handleFirstTenBtn(e.target.value)} >First 10</button>
       </div>
+      
       <h1> {resourceType} </h1>
       {items.slice(0, 10).map(item => {
-        return <pre>{JSON.stringify(item)} </pre>
+        return <pre>{JSON.stringify(item)}</pre>
       })}
-      
+
   
       <h1>Window Event Listerner {windowWidth}</h1>
 

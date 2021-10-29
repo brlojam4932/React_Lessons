@@ -4,7 +4,7 @@ const RandGenApp = () => {
   const randomGenVideoLink = "https://youtu.be/jsLZkOiREJg";
   const [minVal, setMinVal] = useState(0);
   const [maxVal, setMaxVal] = useState(10);
-  const [randomNum, setRandomNum] = useState(5);
+  const [randomNum, setRandomNum] = useState(Math.floor(Math.random() * ( maxVal - minVal + 1) + minVal));
 
   const handleRandomNum = () => {
     setRandomNum(Math.floor(Math.random() * ( maxVal - minVal + 1) + minVal));
@@ -16,7 +16,7 @@ const RandGenApp = () => {
      <div className='randomNum'> 
        <h1>RANDOMIZER: MIN/MAX NUMBER GENERATOR</h1>
           <p>
-            Random number: <span>{randomNum}</span>
+            Random number: <span> <h1>{randomNum}</h1></span>
           </p>
         </div>
         <div className='numContainer'>
