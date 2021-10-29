@@ -14,6 +14,7 @@ import PrePersonApp from './components/propImports/PrePersonApp';
 import PreComponentApp from './components/propImports/PropTypes2';
 import PopUps from './components/propImports/PopUps';
 import MyUseEffect from './components/propImports/MyUseEffect';
+import Pagination from './components/propImports/paginationFolder/Pagination';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -28,6 +29,7 @@ export default function App(props) {
     isMarried: false,
     children: []
   };
+
 
   const jackDavis = {
     name: "Jack Davis",
@@ -61,8 +63,10 @@ export default function App(props) {
               <HooksPractice />
               <RandGenApp />
               <Forms />
-              <br/> <br/>
+              <br /> <br />
               <MyUseEffect />
+              <br /> <br />
+              <Pagination />
             </Route>
             <Route path="/formsSubmit">
               <FormSubmit />

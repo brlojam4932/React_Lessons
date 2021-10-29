@@ -8,7 +8,7 @@ function MyUseEffect() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const [minVal, setMinVal] = useState(0);
-  const [maxVal, setMaxVal] = useState(20);
+  const [maxVal, setMaxVal] = useState(10);
   const [first10, setFirst10] = useState(minVal, maxVal);
 
   const handleFirstTenBtn = () => {
@@ -51,6 +51,8 @@ function MyUseEffect() {
         <h1>Use Effects and Cleanup</h1>
         <a href={linkUseEffect} >Use Effect video link</a>
         <br/>
+        <a href='https://jsonplaceholder.typicode.com/'>Link To JSON Placeholder </a>
+        <br/>
         <br/>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('posts')} >Posts</button>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('users')} >Users</button>
@@ -67,8 +69,9 @@ function MyUseEffect() {
       </div>
       
       <h1> {resourceType} </h1>
+
       {items.slice(indexStart, indexEnd).map(item => {
-        return <pre>{JSON.stringify(item)}</pre>
+        return  <pre>{JSON.stringify(item)}</pre>
       })}
 
   
