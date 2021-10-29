@@ -8,7 +8,7 @@ function MyUseEffect() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const [minVal, setMinVal] = useState(0);
-  const [maxVal, setMaxVal] = useState(10);
+  const [maxVal, setMaxVal] = useState(20);
   const [first10, setFirst10] = useState(minVal, maxVal);
 
   const handleFirstTenBtn = () => {
@@ -39,6 +39,11 @@ function MyUseEffect() {
       window.removeEventListener('resize', handleResize);
     }
   }, [] );
+
+  //let currentPage = indexStart + indexEnd;
+
+  let indexStart = minVal;
+  let indexEnd = maxVal;
   
   return (
     <>
@@ -62,7 +67,7 @@ function MyUseEffect() {
       </div>
       
       <h1> {resourceType} </h1>
-      {items.slice(0, 10).map(item => {
+      {items.slice(indexStart, indexEnd).map(item => {
         return <pre>{JSON.stringify(item)}</pre>
       })}
 
