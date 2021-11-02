@@ -28,6 +28,8 @@ const Home = () => {
         <h1>{Math.random() * 10} </h1>
         <a href={link}>Google Site</a>
         <a href={linkReact} >Link to React.org</a>
+        <h2>Paths Explained</h2>
+        <a href='https://youtu.be/hxto_sRZsBg'>Link to HTML paths explained video</a>
       </div>
       <a href="https://reactjs.org/docs/hooks-rules.html" class="list-group-item list-group-item-action flex-column align-items-start active">
         <div className="d-flex w-100 justify-content-between">

@@ -24,7 +24,7 @@ function Pagination() {
       setLoading(false);
     }
     fetchPosts();
-  }, []); // the loop now stops here (dependancies go in array) - like component did moutn cycle method
+  }, []); // the loop now stops here (dependancies go in array) - like component did mount cycle method
   console.log(posts);
 
   // Get current posts
@@ -48,8 +48,10 @@ function Pagination() {
   return (
     <div className='constainer mt-5'>
       <h1 className='text-primary mb-3' >Pagination</h1>
+      <br/>
+      <a href='https://youtu.be/IYCa1F-OWmk'>link to pagination video</a>
+     
       <Posts posts={currentPosts} loading={loading} />
-
       <PrePagination 
       postsPerPage={postsPerPage}
       totalPosts={posts.length}

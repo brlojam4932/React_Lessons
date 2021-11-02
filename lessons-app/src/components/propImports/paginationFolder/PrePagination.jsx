@@ -13,13 +13,13 @@ export default function PrePagination({ postsPerPage, totalPosts, paginate }) {
 
   // ul.class
   // bootstrap
-  // ex. href="!#" (click event)
+  // ex. href="!#" (click event) removed - not sure how it works -- href="/hooksPractice"
   return (
     <nav>
       <ul className="pagination">
         {pageNumbers.map(number => (
-          <li key={number} className='page-tiem'>
-            <a onClick={() => paginate(number)} className='page-link'></a>
+          <li key={number} className='page-item'>
+            <p onClick={() => paginate(number)}  className='page-link'></p>
             {number}
           </li>
         ))}
