@@ -19,6 +19,9 @@ function PostsExchange() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
+  const [showBalance, setShowBalance] = useState(10000);
+  const [coinData, setCoinData] = useState([])
+
   useEffect(() => {
     axios.get('https://api.coinpaprika.com/v1/tickers')
       .then(res => {
@@ -40,14 +43,26 @@ function PostsExchange() {
     setPaginatedPosts(paginatedPost);
   };
 
+  /*
+  const handleRefresh = (valueChangeIndex) => {
+    const coin = posts.find(({index}) => index === valueChangeIndex);
+    console.log(coin);
+  }
+  */
 
+  const handleRefresh = (event) => {
+    event.preventDefault();
+  }
+
+
+  // check out uuid plugin to create Key names
   return (
     <div>
       <h1>React table with pagination</h1>
       <a href='https://youtu.be/kEd81ZirrCY'>Link to tutorial</a>
       <br />
       <br />
-      <AccountBal amount={10000} />
+      <AccountBal amount={showBalance} />
       <br />
       <br />
        {
@@ -72,8 +87,7 @@ function PostsExchange() {
                   <Td>{post.id}</Td>
                   <Td>{post.name}</Td>
                   <Td>{post.symbol}</Td>
-                  <Td>$ {post.quotes.USD.price }</Td>
-                
+                  <Td>$ {post.quotes.USD.price }</Td>   
                   <Td>
                     <p className={
                       post.completed ? 'btn btn-success' : 'btn btn-danger'
@@ -81,9 +95,15 @@ function PostsExchange() {
                       {post.completed ? "Completed" : "Pending"}
 
                     </p>
+                    <form action="#" method="POST">
+                      <button className='btn btn-outline-info' onClick={handleRefresh}  >Refresh</button>
+
+                    </form>
                   </Td>
+                 
                 </tr>
               ))
+              
             };
           </tbody>
         </table>

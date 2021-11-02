@@ -17,6 +17,7 @@ import MyUseEffect from './components/propImports/MyUseEffect';
 import Pagination from './components/propImports/paginationFolder/Pagination';
 import Posts from './components/propImports/PaginationTable/Posts';
 import PostsExchange from './components/propImports/PaginationTable/PostsEx';
+import ReactConf from './components/propImports/ReactConf';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -62,6 +63,9 @@ export default function App(props) {
               <PreComponentApp />
             </Route>
             <Route path="/hooksPractice">
+            <br /> <br />
+              <ReactConf />
+              <br /> <br />
               <HooksPractice />
               <RandGenApp />
               <Forms />
