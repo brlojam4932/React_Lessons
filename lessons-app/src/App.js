@@ -18,6 +18,7 @@ import Pagination from './components/propImports/paginationFolder/Pagination';
 import Posts from './components/propImports/PaginationTable/Posts';
 import PostsExchange from './components/propImports/PaginationTable/PostsEx';
 import ReactConf from './components/propImports/ReactConf';
+import CustomHooks from './components/propImports/CustomHooks';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -64,6 +65,8 @@ export default function App(props) {
             </Route>
             <Route path="/hooksPractice">
             <br /> <br />
+              <CustomHooks />
+              <br /> <br />
               <ReactConf />
               <br /> <br />
               <HooksPractice />

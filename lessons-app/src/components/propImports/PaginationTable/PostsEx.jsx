@@ -19,8 +19,8 @@ function PostsExchange() {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
-  const [showBalance, setShowBalance] = useState(10000);
-  const [coinData, setCoinData] = useState([])
+  const [showBalance] = useState(10000);
+  //const [coinData, setCoinData] = useState([])
 
   useEffect(() => {
     axios.get('https://api.coinpaprika.com/v1/tickers')
