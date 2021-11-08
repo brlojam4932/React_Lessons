@@ -1,85 +1,66 @@
 import React from 'react';
-import { useState } from "react";
-import { FaTrashAlt } from 'react-icons/fa';
+import ItemList from './ItemList';
 
-function Content() {
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      item: "Bitcoin has aperiam sed aut tenetur, itaque error nostrum voluptatem consectetur id a quaerat laborum et cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "Rex",
-      checked: false
+// prop drilling, one level down from parent
+function Content({ items, handleCheck, handleDelete }) {
 
-    },
-    {
-      id: 2,
-      item: "Ethereum will ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debsamus eos aliquam. Iste upiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "Jill",
-      checked: false
-    },
-    {
-      id: 3,
-      item: "Third coin has ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debitis excemus commodi autem?",
-      author: "mario",
-      checked: false
+  // if list has 0 items; your list is empty
+  // this will need to be astracted into it's own component
 
-    },
-    {
-      id: 4,
-      item: "Fourth Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit m consectetur id a quaerat laborum et cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
-    },
-    {
-      id: 5,
-      item: "Fith Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
-    },
-    {
-      id: 6,
-      item: "Sixth Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debitis excepturi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
-    }
-  ]);
-
-  const handleCheck = (id) => {
-    //console.log(`key: ${id}`);
-    //shallow copy of an array method
-    //const ListItem = [...items] - we use map instead
-    //but shallow copy is used to copy the array into a new listItems array, if item.id is matched with the clicked item's id.
-    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
-    setItems(listItems);
-    localStorage.setItem('shoppiglist', JSON.stringify(listItems));
-  }
+  // now ItemList is abtracted and it's props are imported
 
   return (
 
     <main>
-      <ul>
-        {items.map((item) => (
-          <li className="item" key={item.id}>
-            <input
-              type="checkBox"
-              onChange={() => handleCheck(item.id)}
-              checked={item.checked}>
-            </input>
-            <label>{item.item}</label>
+      {items.length ? (
+        <ItemList
+          items={items}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
 
-            <FaTrashAlt
-              role="button"
-              tabIndex="0"
-            />
+      ) : (
+        <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
+      )}
+    </main>
+  )
 
-          </li>
 
-        ))}
-      </ul>
+  /*
+  return (
+    <main>
+      {items.length ? (
+         <ul>
+         {items.map((item) => (
+           <li className="item" key={item.id}>
+             <input
+               type="checkBox"
+               onChange={() => handleCheck(item.id)}
+               checked={item.checked}>
+             </input>
+             <label
+               style={(item.checked) ? { textDecoration: 'line-through' } : null}
+               onDoubleClick={() => handleCheck(item.id)}
+             >{item.item}
+             </label>
+ 
+             <FaTrashAlt
+               onClick={() => handleDelete(item.id)}
+               role="button"
+               tabIndex="0"
+             />
+           </li>
+         ))}
+       </ul>
+      ) : (
+        <p style={{marginTop: '2rem'}}>Your list is empty</p>
+      )}
+     
     </main>
 
   )
+  */
 }
 
 export default Content;

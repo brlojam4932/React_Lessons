@@ -1,8 +1,16 @@
 .data {
   font-size: medium;
-  color: rgb(213, 213, 213);
+  color: rgb(70 77 92);
 }
 
 .button {
   width: 100%;
+}
+
+.table {
+  --bs-table-hover-color: #9bacba;
+}
+
+.table-dark {
+  --bs-table-bg: #1a1b1c;
 }

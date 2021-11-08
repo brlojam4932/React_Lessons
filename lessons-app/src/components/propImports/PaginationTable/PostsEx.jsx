@@ -31,7 +31,7 @@ function PostsExchange() {
       });
   }, []);
 
-  const totalPages = 50;
+  const totalPages = 20;
   const pageCount = posts ? Math.ceil(totalPages/ pageSize) : 0;
   if (pageCount === 1) return null;
   const pages = _.range(1, pageCount + 1);
