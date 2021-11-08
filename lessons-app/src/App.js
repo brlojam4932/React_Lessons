@@ -19,6 +19,7 @@ import Posts from './components/propImports/PaginationTable/Posts';
 import PostsExchange from './components/propImports/PaginationTable/PostsEx';
 import ReactConf from './components/propImports/ReactConf';
 import CustomHooks from './components/propImports/CustomHooks';
+import Blogs from './components/propImports/Blogs/Blogs';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -60,26 +61,29 @@ export default function App(props) {
                 <Person person={ben} />
                 <Person person={jackDavis} />
               </div>
-              <PrePersonApp />
-              <PreComponentApp />
+              <PrePersonApp/>
+              <PreComponentApp/>
             </Route>
             <Route path="/hooksPractice">
-            <br /> <br />
-              <CustomHooks />
-              <br /> <br />
-              <ReactConf />
-              <br /> <br />
-              <HooksPractice />
-              <RandGenApp />
-              <Forms />
-              <br /> <br />
-              <MyUseEffect />
-              <br /> <br />
+            <br/><br/>
+              <CustomHooks/>
+              <br/><br/>
+              <ReactConf/>
+              <br/><br/>
+              <HooksPractice/>
+              <RandGenApp/>
+              <Forms/>
+              <br/><br/>
+              <MyUseEffect/>
+              <br/><br/>
               <Pagination />
-              <br /> <br />
+              <br/><br/>
               <Posts />
-              <br /> <br />
-              <PostsExchange />
+              <br/><br/>
+              <PostsExchange/>
+              <br/><br/>
+              <Blogs/>
+              <br/><br/>
             </Route>
             <Route path="/formsSubmit">
               <FormSubmit />

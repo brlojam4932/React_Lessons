@@ -14,6 +14,9 @@ export default function PrePagination({ postsPerPage, totalPosts, paginate }) {
   // ul.class
   // bootstrap
   // ex. href="!#" (click event) removed - not sure how it works -- href="/hooksPractice"
+
+
+
   return (
     <nav>
       <ul className="pagination">

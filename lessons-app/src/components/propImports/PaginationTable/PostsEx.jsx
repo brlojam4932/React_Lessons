@@ -14,8 +14,8 @@ const Td = styled.td`
 
 function PostsExchange() {
 
-  const [posts, setPosts] = useState();
-  const [paginatedPosts, setPaginatedPosts] = useState();
+  const [posts, setPosts] = useState([]);
+  const [paginatedPosts, setPaginatedPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
 
@@ -43,13 +43,8 @@ function PostsExchange() {
     setPaginatedPosts(paginatedPost);
   };
 
-  /*
-  const handleRefresh = (valueChangeIndex) => {
-    const coin = posts.find(({index}) => index === valueChangeIndex);
-    console.log(coin);
-  }
-  */
 
+  
   const handleRefresh = (event) => {
     event.preventDefault();
   }
@@ -69,9 +64,9 @@ function PostsExchange() {
       !paginatedPosts ? ("No data found") : (
         <table className="table table-hover data">
           <thead>
-            <tr className="table-primary">
+            <tr className="table-dark">
               <th>Rank</th>
-              <th >ID</th>
+              <th>ID</th>
               <th>Name</th>
               <th>Ticker</th>
               <th>Price</th>
@@ -95,7 +90,7 @@ function PostsExchange() {
                       {post.completed ? "Completed" : "Pending"}
 
                     </p>
-                    <form action="#" method="POST">
+                    <form action="#">
                       <button className='btn btn-outline-info' onClick={handleRefresh}  >Refresh</button>
 
                     </form>

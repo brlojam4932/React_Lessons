@@ -18,6 +18,9 @@ const Home = () => {
 
   return (
     <div className="home">
+      <h1>Net Ninja tutorial</h1>
+      <br/>
+      <a href='https://youtu.be/pnhO8UaCgxg' >link to video</a>
       <div className="list-group">
         <h1> {title}</h1>
         <p>Liked {likes} times </p>

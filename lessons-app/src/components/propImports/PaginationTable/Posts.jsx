@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import "../../css/PostsEx.css";
 import { useEffect } from 'react/cjs/react.development';
 //import { Link } from 'react-router-dom';
 import _ from "lodash";
