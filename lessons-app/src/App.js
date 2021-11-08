@@ -20,6 +20,7 @@ import PostsExchange from './components/propImports/PaginationTable/PostsEx';
 import ReactConf from './components/propImports/ReactConf';
 import CustomHooks from './components/propImports/CustomHooks';
 import Blogs from './components/propImports/Blogs/Blogs';
+import Groceries from './components/propImports/ListsKeys/Groceries';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -83,6 +84,8 @@ export default function App(props) {
               <PostsExchange/>
               <br/><br/>
               <Blogs/>
+              <br/><br/>
+              <Groceries/>
               <br/><br/>
             </Route>
             <Route path="/formsSubmit">

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import Form from './Form';
 //import List from './List';
@@ -31,9 +32,10 @@ export default function Blogs() {
   return (
     <div className="App">
       <h1>Practice Blogs and Fetch</h1>
+      <h1>{items.length} {reqType}</h1>
         <Form reqType={reqType} setReqType={setReqType}/>
         <Table items={items}/>
-    
+       
     </div>
   )
 }

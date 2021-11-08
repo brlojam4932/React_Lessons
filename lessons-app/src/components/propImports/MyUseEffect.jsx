@@ -68,7 +68,7 @@ function MyUseEffect() {
         <button onClick={(e) => handleFirstTenBtn(e.target.value)} >First 10</button>
       </div>
       
-      <h1> {resourceType} </h1>
+      <h1> {resourceType} {resourceType.length} </h1>
 
       {items.slice(indexStart, indexEnd).map(item => {
         return  <pre>{JSON.stringify(item)}</pre>

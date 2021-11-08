@@ -69,6 +69,7 @@ function PostsExchange() {
               <th>ID</th>
               <th>Name</th>
               <th>Ticker</th>
+              <th>Balance</th>
               <th>Price</th>
               <th>Status</th>
              
@@ -82,16 +83,17 @@ function PostsExchange() {
                   <Td>{post.id}</Td>
                   <Td>{post.name}</Td>
                   <Td>{post.symbol}</Td>
-                  <Td>$ {post.quotes.USD.price }</Td>   
+                  <Td>{post.balance}</Td>
+                  <Td>$ {post.quotes.USD.price}</Td>   
                   <Td>
                     <p className={
                       post.completed ? 'btn btn-success' : 'btn btn-danger'
                     }>
                       {post.completed ? "Completed" : "Pending"}
-
+                    
                     </p>
                     <form action="#">
-                      <button className='btn btn-outline-info' onClick={handleRefresh}  >Refresh</button>
+                      <button className='btn btn-outline-secondary' onClick={handleRefresh}>Refresh</button>
 
                     </form>
                   </Td>

@@ -1,3 +1,4 @@
+import React from 'react';
 import Row from './Row';
 
 const Table = ({items}) => {
@@ -5,7 +6,7 @@ const Table = ({items}) => {
     <div className="table-container">
       <table>
         <tbody>
-          {items.map(item => (
+          {items.slice(0, 20).map(item => (
             <Row key={item.id} item={item}/>
           ))}
         </tbody>

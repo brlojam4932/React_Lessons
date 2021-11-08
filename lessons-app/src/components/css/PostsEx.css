@@ -2,3 +2,7 @@
   font-size: medium;
   color: rgb(213, 213, 213);
 }
+
+.button {
+  width: 100%;
+}
