@@ -5,7 +5,6 @@ import { useEffect } from 'react/cjs/react.development';
 //import { Link } from 'react-router-dom';
 import _ from "lodash";
 
-
 function Posts() {
 
   const [posts, setPosts] = useState();
@@ -49,9 +48,9 @@ function Posts() {
           </thead>
           <tbody>
             {
-              paginatedPosts.map((post, index) => (
-                <tr key={index}>
-                  <td>{post.id}</td>
+              paginatedPosts.map((post) => (
+                <tr key={post.id}>
+              
                   <td>{post.userId}</td>
                   <td>{post.title}</td>
                   <td>
@@ -72,7 +71,7 @@ function Posts() {
         <ul className='pagination'>
           {
             pages.map((page) => (
-              <li className={
+              <li key={page.toString()} className={
                 page === currentPage ? "page-item active" : "page-item"}>
                 <p className='page-link' 
                 onClick={() => pagination(page)}

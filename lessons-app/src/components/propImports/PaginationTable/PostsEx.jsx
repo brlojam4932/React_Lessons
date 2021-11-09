@@ -23,7 +23,7 @@ function PostsExchange() {
   //const [coinData, setCoinData] = useState([])
 
   useEffect(() => {
-    axios.get('https://api.coinpaprika.com/v1/tickers')
+    axios.get(`https://api.coinpaprika.com/v1/tickers?_limit=${totalPages}`)
       .then(res => {
         console.log(res.data);
         setPosts(res.data);
@@ -31,7 +31,7 @@ function PostsExchange() {
       });
   }, []);
 
-  const totalPages = 20;
+  const totalPages = 50;
   const pageCount = posts ? Math.ceil(totalPages/ pageSize) : 0;
   if (pageCount === 1) return null;
   const pages = _.range(1, pageCount + 1);

@@ -71,7 +71,7 @@ function MyUseEffect() {
       <h1> {resourceType} {resourceType.length} </h1>
 
       {items.slice(indexStart, indexEnd).map(item => {
-        return  <pre>{JSON.stringify(item)}</pre>
+        return  <pre key={item.id} >{JSON.stringify(item)}</pre>
       })}
 
   

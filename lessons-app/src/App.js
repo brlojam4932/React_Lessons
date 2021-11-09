@@ -52,7 +52,7 @@ export default function App(props) {
         <div className='content'>
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home/>
             </Route>
             <Route path="/employees">
               <Employees />
@@ -77,9 +77,9 @@ export default function App(props) {
               <br/><br/>
               <MyUseEffect/>
               <br/><br/>
-              <Pagination />
+              <Pagination/>
               <br/><br/>
-              <Posts />
+              <Posts/>
               <br/><br/>
               <PostsExchange/>
               <br/><br/>
@@ -92,7 +92,7 @@ export default function App(props) {
               <FormSubmit />
             </Route>
             <Route path="/signIn">
-              <SignIn />
+              <SignIn/>
             </Route>
             <Route>
               <PopUps path='/popups' />
