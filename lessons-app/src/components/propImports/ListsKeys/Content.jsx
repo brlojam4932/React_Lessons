@@ -11,8 +11,7 @@ function Content({ items, handleCheck, handleDelete }) {
   // now ItemList is abtracted and it's props are imported
 
   return (
-
-    <main>
+    <>
       {items.length ? (
         <ItemList
           items={items}
@@ -23,7 +22,7 @@ function Content({ items, handleCheck, handleDelete }) {
       ) : (
         <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
       )}
-    </main>
+    </>
   )
 }
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+//import styled from 'styled-components';
 
 // hooks / custom hooks | could not complete it; failed with errors
-export default function ReactConf(props) {
+ function ReactConf() {
 
- 
   //const _myName = useFormInput('Janet');
   //const _surName = useFormInput('Lopez');
   //useDocumentTitle(_myName.value + ' ' + _surName.value);
@@ -38,18 +38,18 @@ export default function ReactConf(props) {
       <a href='https://youtu.be/dpw9EHDh2bM?t=2743'>link to video</a>
       <br/>
       <br/>
-      <rows label="Name">
+      <row label="Name">
         <input
           value={myName}
           onChange={handleNameChange}
         />
-      </rows>
-      <rows label="SurName">
+      </row>
+      <row label="SurName">
         <input
           value={surName}
           onChange={handleSurNameChange}
         />
-      </rows>
+      </row>
       <p>{myName}</p>
       <p>{surName}</p>
       <br/>
@@ -100,6 +100,7 @@ function useWindowWidth() {
 
 }
 
+export default ReactConf;
 /*
 
 //Extracting a function; "Custom Hook"
