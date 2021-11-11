@@ -2,9 +2,9 @@ import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
 // This is a reusable component
-function LineItem({item, handleCheck, handleDelete} ) {
+function LineItem({ item, handleCheck, handleDelete }) {
   return (
-    <li className="item" key={item.id}>
+    <li className="item">
       <input
         type="checkBox"
         onChange={() => handleCheck(item.id)}

@@ -1,52 +1,52 @@
 import React from 'react';
+import Header from "./Header";
+import AddItem from './AddItem';
 import Content from "./Content";
 import Footer from './Footer';
-import Header from "./Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import SearchItem from './SearchItem';
 
+//===========LAUNCH SERVER=========================
+//npx json-server -p 3500 -w data/db.json
+// p for 'port', w for 'watch'
 
 function Groceries() {
+  const API_URL = 'http://localhost:3500/items';
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      item: "Bitcoin has aperiam sed aut tenetur, itaque error nostrum voluptatem consectetur id a quaerat laborum et cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "Rex",
-      checked: false
+  const [items, setItems] = useState([]);
+  const [newItem, setNewItem] = useState('');
+  const [search, setSearch] = useState('');
 
-    },
-    {
-      id: 2,
-      item: "Ethereum will ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debsamus eos aliquam. Iste upiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "Jill",
-      checked: false
-    },
-    {
-      id: 3,
-      item: "Third coin has ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debitis excemus commodi autem?",
-      author: "mario",
-      checked: false
-
-    },
-    {
-      id: 4,
-      item: "Fourth Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit m consectetur id a quaerat laborum et cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
-    },
-    {
-      id: 5,
-      item: "Fith Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit cupiditate? Alias assumenda nisi animi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
-    },
-    {
-      id: 6,
-      item: "Sixth Coin ipsum dolor sit, amet consectetur adipisicing elit. Sit corrupti debitis excepturi porro libero tempora eum dolor. Ipsum!",
-      author: "mario",
-      checked: false
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        // fetch api url -- get requests and return JSON
+        // response -> listItems await to convert to json; get list items
+        // setItems to listItems
+        const response = await fetch(API_URL);
+        const listItems = await response.json();
+        console.log(listItems);
+        setItems(listItems);
+      } catch (err) {
+        console.log(err.stack)
+      }
     }
-  ]);
+    // Call async funtion in it's own instantly instantiated async function. Await fetch items + operators
+    (async () => await fetchItems())();
+  }, []);
+
+
+  const addItem = (item) => {
+    // trunary statement
+    // if there are items in our current state, not 0, we pass the item's length
+    // Last item in the list - 1 = quantity
+    // we get the id of the last item increment id by 1
+    // if item has no length = 0; so we add 1; hence id = 1
+    const id = items.length ? items[items.length -1].id + 1 : 1;
+    const myNewItem = { id, checked: false, item};
+    const listItems = [...items, myNewItem];
+    setItems(listItems);
+  }
 
   const handleCheck = (id) => {
     //console.log(`key: ${id}`);
@@ -54,15 +54,22 @@ function Groceries() {
     //const ListItem = [...items] - we use map instead
     //but shallow copy is used to copy the array into a new listItems array, if item.id is matched with the clicked item's id.
     const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
-    setItems(listItems);
-    localStorage.setItem('shoppiglist', JSON.stringify(listItems));
+    setItems(listItems);  
   }
 
   const handleDelete = (id) => {
     //console.log(id);
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
-    localStorage.setItem('shoppiglist', JSON.stringify(listItems));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!newItem) return;
+    // add item
+    addItem(newItem);
+    // this allows us to reset the input field
+    setNewItem('');
   }
 
   // ------------THIS IS PROP DRILLING, BELOW------------
@@ -70,9 +77,18 @@ function Groceries() {
   return (
 
     <div className="GroceriesApp">
-      <Header title='Groceries' />
+      <Header title='Groceries'/>
+      <AddItem
+      newItem={newItem}
+      setNewItem={setNewItem}
+      handleSubmit={handleSubmit}
+      />
+       <SearchItem
+      search={search}
+      setSearch={setSearch}
+      />
       <Content
-        items={items}
+        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />

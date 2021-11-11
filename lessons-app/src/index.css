@@ -120,6 +120,64 @@ ul li::before {
   outline: none;
 }
 
+.addForm input[type="text"] {
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25em;
+  border-radius: 0.25rem;
+  margin-right: 0.25em;
+  outline: none;
+}
 
+.addForm label {
+  position: absolute;
+  left: -9999px;
+}
+
+button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 00.25em;
+  padding: 00.5rem;
+  font-size: 1rem;
+  background-color: grey;
+  color: aquamarine;
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  color: aliceblue;
+  background-color: rgb(83, 162, 147);
+  outline: none;
+}
+
+.searchForm {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.25rem 0.25rem;
+  padding: 0 0.5rem 0.25rem;
+  border-bottom: 1px solid white;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+
+}
+
+.searchForm input[type='text'] {
+  flex-grow: 1;
+  max-width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 00.25em;
+  border-radius: 00.25em;
+  outline: none;
+
+}
 
 
