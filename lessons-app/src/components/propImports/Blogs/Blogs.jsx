@@ -5,37 +5,46 @@ import Form from './Form';
 import Table from "./Table";
 import "../../css/Blogs.css";
 
+//'https://jsonplaceholder.typicode.com/'
 export default function Blogs() {
+
   const API_URL = 'https://jsonplaceholder.typicode.com/';
-  const [reqType, setReqType] = useState('posts');
+
+  const [reqType, setReqType] = useState('users');
+  //data we get back
   const [items, setItems] = useState([]);
 
 
-  //console.log('render');
-
+  // our login
   useEffect(() => {
     const fetchItems = async () => {
       try {
         const response = await fetch(`${API_URL}${reqType}`);
         const data = await response.json();
-        //console.log('blogs ', data);
+        console.log(data);
         setItems(data);
       } catch (err) {
         console.log(err);
       }
     }
-    fetchItems();
 
-  }, [reqType]);
+    fetchItems();
+    // here is our side effect, it runs when the rquest type changes
+  }, [reqType])
 
 
   return (
-    <div className="App">
-      <h1>Practice Blogs and Fetch</h1>
-      <h1>{items.length} {reqType}</h1>
-        <Form reqType={reqType} setReqType={setReqType}/>
-        <Table items={items}/>
-       
+    <div className="Blogs">
+      <h1>Number of {reqType} {items.length}</h1>
+      <h3>Improvement: Recursion can "flatten-out" objects</h3>
+      <Form 
+      reqType={reqType}
+      setReqType={setReqType}
+      />
+      { /* <List items={items}/>  <=simple output */ }
+      <Table 
+      items={items}
+      />
     </div>
   )
 }

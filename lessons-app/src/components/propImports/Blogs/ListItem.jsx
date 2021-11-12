@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ListItem = ({ item }) => {
+const ListItem = ({item}) => {
   return ( 
     <li>
       {JSON.stringify(item)}
-
     </li>
+    
    );
 }
  
