@@ -122,8 +122,13 @@ function Groceries() {
   // ------------THIS IS PROP DRILLING, BELOW------------
   // passing down the props from the parent to the children components
   return (
-
+    
     <div className="GroceriesApp">
+      <a href="https://youtu.be/Fcj6DQT3nVA">Link to video</a>
+      <p>React JS Lists and Keys | Learn ReactJS</p>
+      <a href="https://youtu.be/r5ombQn3fHY">Link to video</a>
+      <p>React JS Forms | Controlled Inputs | Learn ReactJS</p>
+      
       <Header title='Groceries' />
       <AddItem
         newItem={newItem}

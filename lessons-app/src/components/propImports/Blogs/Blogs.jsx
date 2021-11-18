@@ -35,6 +35,8 @@ export default function Blogs() {
 
   return (
     <div className="Blogs">
+      <a href="https://youtu.be/lf_uNOKVSnM">Link to video</a>
+      <p>React Beginners Challenge - Fetch API Data | React JS Beginners Project</p>
       <h1>Number of {reqType} {items.length}</h1>
       <h3>Improvement: Recursion can "flatten-out" objects</h3>
       <Form 

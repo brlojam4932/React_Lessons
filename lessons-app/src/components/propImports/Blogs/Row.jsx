@@ -1,6 +1,7 @@
 import React from 'react';
 import Cell from './Cell';
 
+// value is stringified with JSON since they are nested objects from the user resource
 const Row = ( {item} ) => {
   return ( 
     <tr>

@@ -52,7 +52,7 @@ export default function App(props) {
         <div className='content'>
           <Switch>
             <Route exact path="/">
-              <Home/>
+              <Home />
             </Route>
             <Route path="/employees">
               <Employees />
@@ -62,45 +62,43 @@ export default function App(props) {
                 <Person person={ben} />
                 <Person person={jackDavis} />
               </div>
-              <PrePersonApp/>
-              <PreComponentApp/>
+              <PrePersonApp />
+              <PreComponentApp />
             </Route>
             <Route path="/hooksPractice">
-            <br/><br/>
-              <CustomHooks/>
-              <br/><br/>
-              <ReactConf/>
-              <br/><br/>
-              <HooksPractice/>
-              <RandGenApp/>
-              <Forms/>
-              <br/><br/>
-              <MyUseEffect/>
-              <br/><br/>
-              <Pagination/>
-              <br/><br/>
-              <Posts/>
-              <br/><br/>
-              <PostsExchange/>
-              <br/><br/>
-              <Blogs/>
-              <br/><br/>
-              <Groceries/>
-              <br/><br/>
+              <br /><br />
+              <CustomHooks />
+              <br /><br />
+              <ReactConf />
+              <br /><br />
+              <HooksPractice />
+              <RandGenApp />
+              <Forms />
+              <br /><br />
+              <MyUseEffect />
+              <br /><br />
+              <Pagination />
+              <br /><br />
+              <Posts />
+              <br /><br />
+              <PostsExchange />
+              <br /><br />
+              <Groceries />
+              <br /><br />
+              <Blogs />
+              <br /><br />
             </Route>
             <Route path="/formsSubmit">
               <FormSubmit />
             </Route>
             <Route path="/signIn">
-              <SignIn/>
+              <SignIn />
             </Route>
             <Route>
               <PopUps path='/popups' />
             </Route>
           </Switch>
         </div>
-
-
       </div>
     </Router>
   );
