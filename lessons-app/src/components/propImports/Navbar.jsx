@@ -7,6 +7,7 @@ const Navbar = () => {
   const link = "/employees";
   const link2 = "/person";
   const link3 = "/hooksPractice";
+  const linkStyling = "/styling";
   const link4 = "/formsSubmit";
   const link5 = "/SignIn";
   const link6 = "/popups";
@@ -35,6 +36,9 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to={link3}>Hooks</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={linkStyling}>Styling</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to={link4}>Forms Submit</Link>

@@ -21,6 +21,7 @@ import ReactConf from './components/propImports/ReactConf';
 import CustomHooks from './components/propImports/CustomHooks';
 import Blogs from './components/propImports/Blogs/Blogs';
 import Groceries from './components/propImports/ListsKeys/Groceries';
+import Styling from './components/propImports/Styling';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -87,6 +88,9 @@ export default function App(props) {
               <br /><br />
               <Blogs />
               <br /><br />
+            </Route>
+            <Route path="/styling">
+              <Styling />
             </Route>
             <Route path="/formsSubmit">
               <FormSubmit />
