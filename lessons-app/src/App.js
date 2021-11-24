@@ -22,6 +22,8 @@ import CustomHooks from './components/propImports/CustomHooks';
 import Blogs from './components/propImports/Blogs/Blogs';
 import Groceries from './components/propImports/ListsKeys/Groceries';
 import Styling from './components/propImports/Styling';
+import AllHooks from './components/propImports/AllHooksTut/AllHooks';
+import Reducer from './components/propImports/AllHooksTut/Reducer';
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -88,6 +90,9 @@ export default function App(props) {
               <br /><br />
               <Blogs />
               <br /><br />
+              <AllHooks />
+              <br /><br />
+              <Reducer />
             </Route>
             <Route path="/styling">
               <Styling />
