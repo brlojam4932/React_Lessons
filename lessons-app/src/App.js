@@ -24,6 +24,12 @@ import Groceries from './components/propImports/ListsKeys/Groceries';
 import Styling from './components/propImports/Styling';
 import AllHooks from './components/propImports/AllHooksTut/AllHooks';
 import Reducer from './components/propImports/AllHooksTut/Reducer';
+import EffectTut from './components/propImports/AllHooksTut/EffectTut';
+import UseRefTut from './components/propImports/AllHooksTut/UseRefTut';
+import LayoutEffectTut from './components/propImports/AllHooksTut/LayoutEffectTut';
+import ImpHandleTut from './components/propImports/AllHooksTut/ImpHandleTut';
+import ContextTut from './components/propImports/AllHooksTut/ContextTut';
+
 // simple react snippets: sfc - A stateless funcitonal component
 
 //Prop Types
@@ -93,6 +99,17 @@ export default function App(props) {
               <AllHooks />
               <br /><br />
               <Reducer />
+              <br /><br />
+              <EffectTut />
+              <br /><br />
+              <UseRefTut />
+              <br /><br />
+              <LayoutEffectTut />
+              <br /><br />
+              <ImpHandleTut />
+              <br /><br />
+              <ContextTut />
+              <br /><br />
             </Route>
             <Route path="/styling">
               <Styling />
