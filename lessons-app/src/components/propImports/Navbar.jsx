@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const link = "/employees";
-  const link2 = "/person";
-  const link3 = "/hooksPractice";
+  const linkPerson = "/person";
+  const linkHooks = "/hooksPractice";
   const linkStyling = "/styling";
   const link4 = "/formsSubmit";
   const link5 = "/SignIn";
@@ -32,10 +32,10 @@ const Navbar = () => {
               <Link className="nav-link" to="/employees">Buttons/Intro</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={link2}>Prop Types</Link>
+              <Link className="nav-link" to={linkPerson}>Prop Types</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={link3}>Hooks</Link>
+              <Link className="nav-link" to={linkHooks}>Hooks</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to={linkStyling}>Styling</Link>
