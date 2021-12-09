@@ -8,8 +8,8 @@ const Navbar = () => {
   const linkPerson = "/person";
   const linkHooks = "/hooksPractice";
   const linkStyling = "/styling";
-  const link4 = "/formsSubmit";
-  const link5 = "/SignIn";
+  const linkForms = "/formsSubmit";
+  const linkSignIn = "/signIn";
   const link6 = "/popups";
   return (
     //return a template
@@ -41,16 +41,16 @@ const Navbar = () => {
               <Link className="nav-link" to={linkStyling}>Styling</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={link4}>Forms Submit</Link>
+              <Link className="nav-link" to={linkForms}>Forms Submit</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={link5}>Sign In</Link>
+              <Link className="nav-link" to={linkSignIn}>Sign In</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={link6}>Pop-Ups</Link>
+              <Link className="nav-link" to="/">Pop-Ups</Link>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href={link} role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
               <div className="dropdown-menu">
                 <a className="dropdown-item" href={link}>Action</a>
                 <a className="dropdown-item" href={link}>Another action</a>
