@@ -29,6 +29,8 @@ import UseRefTut from './components/propImports/AllHooksTut/UseRefTut';
 import LayoutEffectTut from './components/propImports/AllHooksTut/LayoutEffectTut';
 import ImpHandleTut from './components/propImports/AllHooksTut/ImpHandleTut';
 import ContextTut from './components/propImports/AllHooksTut/ContextTut';
+import MultApi from './components/propImports/MultApi';
+import MultApi2 from './components/propImports/MultApi2';
 
 // simple react snippets: sfc - A stateless funcitonal component
 
@@ -122,7 +124,11 @@ export default function App(props) {
             </Route>
             <Route>
               <PopUps path='/popups' />
-            </Route>
+              <br /><br />
+              <MultApi />
+              <br /><br />
+              <MultApi2 />
+            </Route> 
           </Switch>
         </div>
       </div>

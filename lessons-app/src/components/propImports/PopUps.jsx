@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
+import Accordion from './Accordion';
 
 import PrePopUp from './prePopUp';
 
@@ -43,6 +44,8 @@ function PopUps() {
         <h3>My popup</h3>
         <p>This is my timedPopup triggered popup</p>
       </PrePopUp>
+
+      <Accordion/>
     </div>
 
     );

@@ -5,7 +5,7 @@ import './index.css';
 import "./components/css/Form.css";
 import "./components/css/personStyle.css";
 import App from './App';
-import { getIconForFile, getIconForFolder, getIconForOpenFolder } from 'vscode-icons-js';
+import { getIconForFile, getIconForFolder } from 'vscode-icons-js';
 
 console.log(getIconForFile('main.cpp'));
 // file_type_cpp.svg

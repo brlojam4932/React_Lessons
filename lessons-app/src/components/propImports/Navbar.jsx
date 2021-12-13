@@ -10,7 +10,8 @@ const Navbar = () => {
   const linkStyling = "/styling";
   const linkForms = "/formsSubmit";
   const linkSignIn = "/signIn";
-  const link6 = "/popups";
+
+
   return (
     //return a template
 
@@ -47,23 +48,9 @@ const Navbar = () => {
               <Link className="nav-link" to={linkSignIn}>Sign In</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">Pop-Ups</Link>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href={link}>Action</a>
-                <a className="dropdown-item" href={link}>Another action</a>
-                <a className="dropdown-item" href={link}>Something else here</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href={link}>Separated link</a>
-              </div>
+              <Link className="nav-link" to="/popups">Pop-Ups</Link>
             </li>
           </ul>
-          <form className="d-flex">
-            <input className="form-control me-sm-2" type="text" placeholder="Search" />
-            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
