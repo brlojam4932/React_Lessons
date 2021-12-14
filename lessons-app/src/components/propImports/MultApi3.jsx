@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import AccountBalance from './AccountBalance';
-import Coin from "./Coin";
+import CoinList from './CoinList';
 
 
 //const formatPrice = price => parseFloat(Number(price).toFixed(4));
@@ -85,19 +85,13 @@ function MultApi() {
         handleToggleChange={handleToggleChange}
       />
 
-      <div className='coins'>
-        {coinData.map(({ key, name, image, ticker, price, balance }) =>
-          <Coin key={key}
-            name={name}
-            image={image}
-            ticker={ticker}
-            price={price}
-            balance={balance}
-            tickerId={key}
-          />
-        )}
+      <CoinList
+        coinData={coinData}
+        transaction={transaction}
+        showBalance={showBalance}
+        
+      />
 
-      </div>
       <div>
       </div>
     </>
