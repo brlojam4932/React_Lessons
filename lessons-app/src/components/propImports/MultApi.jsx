@@ -11,7 +11,6 @@ function MultApi() {
 
   const coinsIdApi = 'https://api.coingecko.com/api/v3/coins/bitcoin';
 
-
   useEffect(() => {
     setLoading(true);
     axios.get(coinsMarketsApi)
@@ -20,22 +19,25 @@ function MultApi() {
         //console.log(res.data);
         setLoading(false);
       }).catch(error => console.log(error));
-   
 
   }, []);
 
+
   console.log(coins);
+
 
   useEffect(() => {
     setLoading(true);
     axios.get(coinsIdApi)
       .then(res => {
         setDescriptions(res.data);
-        console.log(res.data);
+        //console.log(res.data);
           setLoading(false);
       }).catch(error => console.log(error));
     
   }, []);
+
+ 
 
   return (
     <>
@@ -45,16 +47,18 @@ function MultApi() {
             <li key={coin.id}>
               <img src={coin.image} alt='coin-art' />
               <h4>{coin.id}</h4>
+              <h4>{coin.current_price}</h4>
               <p>{coin.symbol}</p>
             </li>
-
           )
         })}
       </div>
       <div>
-      
-      
-      <p>{descriptions.symbol}</p>
+
+      <button>buy</button>
+      <button>sell</button>
+
+      <p>symbol:&nbsp;{descriptions.symbol}</p>
       </div> 
 
      

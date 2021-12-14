@@ -20,8 +20,8 @@ function MultApi() {
 
         setPlayerName(allDataPlayer);
         setPlayerPic(allDataPics);
-        console.log(allDataPlayer);
-        console.log(allDataPics);
+        //console.log(allDataPlayer);
+        //console.log(allDataPics);
       })
     );
   };
@@ -38,7 +38,7 @@ function MultApi() {
       <a href='https://youtu.be/Mt3kxUvHORA'>Link To Video</a>
       <h1>{playerName?.data?.first_name}</h1>
       <h1>{playerPic?.data?.[1].id}</h1>
-      <img src={playerPic?.data?.[1].image}/>
+      <img src={playerPic?.data?.[1].image}  alt="logo-art"/>
     </div>
   )
 }

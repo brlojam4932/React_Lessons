@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // simple react snippets: sfc - A stateless funcitonal component
 
 const Navbar = () => {
-  const link = "/employees";
+  const linkEmplyees = "/employees";
   const linkPerson = "/person";
   const linkHooks = "/hooksPractice";
   const linkStyling = "/styling";
@@ -30,7 +30,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/employees">Buttons/Intro</Link>
+              <Link className="nav-link" to={linkEmplyees}>Buttons/Intro</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to={linkPerson}>Prop Types</Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
               <Link className="nav-link" to={linkSignIn}>Sign In</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/popups">Pop-Ups</Link>
+              <Link className="nav-link" to="/popups">Pop-Ups/Api</Link>
             </li>
           </ul>
         </div>

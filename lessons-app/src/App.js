@@ -31,6 +31,7 @@ import ImpHandleTut from './components/propImports/AllHooksTut/ImpHandleTut';
 import ContextTut from './components/propImports/AllHooksTut/ContextTut';
 import MultApi from './components/propImports/MultApi';
 import MultApi2 from './components/propImports/MultApi2';
+import MultApi3 from './components/propImports/MultApi3';
 
 // simple react snippets: sfc - A stateless funcitonal component
 
@@ -128,6 +129,8 @@ export default function App(props) {
               <MultApi />
               <br /><br />
               <MultApi2 />
+              <br /><br />
+              <MultApi3 />
             </Route> 
           </Switch>
         </div>
