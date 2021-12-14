@@ -29,9 +29,10 @@ import UseRefTut from './components/propImports/AllHooksTut/UseRefTut';
 import LayoutEffectTut from './components/propImports/AllHooksTut/LayoutEffectTut';
 import ImpHandleTut from './components/propImports/AllHooksTut/ImpHandleTut';
 import ContextTut from './components/propImports/AllHooksTut/ContextTut';
-import MultApi from './components/propImports/MultApi';
-import MultApi2 from './components/propImports/MultApi2';
-import MultApi3 from './components/propImports/MultApi3';
+import MultApi from './components/propImports/ApiTest/MultApi';
+import MultApi2 from './components/propImports/ApiTest/MultApi2';
+import MultApi3 from './components/propImports/ApiTest/MultApi3';
+
 
 // simple react snippets: sfc - A stateless funcitonal component
 
