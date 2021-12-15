@@ -9,7 +9,7 @@ function MultApi() {
 
   const fetchData = () => {
     const playerAPI = "https://www.balldontlie.io/api/v1/players/237"
-    const cryptoPic = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10page=1&sparkline=false'
+    const cryptoPic = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=3page=1&sparkline=false'
 
     const getNBAPlayer = axios.get(playerAPI);
     const getCryptoPic = axios.get(cryptoPic);
@@ -34,7 +34,7 @@ function MultApi() {
 
   return (
     <div className='coins'>
-       <h1>Multi API</h1>
+       <h1>Multi API 2</h1>
       <a href='https://youtu.be/Mt3kxUvHORA'>Link To Video</a>
       <h1>{playerName?.data?.first_name}</h1>
       <h1>{playerPic?.data?.[1].id}</h1>

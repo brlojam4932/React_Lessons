@@ -49,8 +49,8 @@ function MultApi() {
   const handleBuy = async (valueChangeId, amountValue) => {
     const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
     console.log("Response: ", response);
-    const newPrice = response.data.current_price;
-    console.log(newPrice);
+    const newPrice = response.current_price;
+    console.log("New Price: ", newPrice);
     const newCoinData = coinData.map((values) => { // copy coinData values into newCoinData, newValues
       let newValues = {...values};
 
