@@ -1,7 +1,7 @@
 import React from 'react';
 import Coin from "./Coin";
 
-function CoinList({transaction, coinData}) {
+function CoinList({transaction, coinData, inputValue, setInputValue, handleBuy}) {
   return (
 
    
@@ -15,6 +15,9 @@ function CoinList({transaction, coinData}) {
             balance={balance}
             tickerId={key}
             transaction={transaction}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            handleBuy={handleBuy}
           />
         )}
 

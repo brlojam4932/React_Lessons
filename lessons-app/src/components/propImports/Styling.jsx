@@ -35,24 +35,24 @@ function Styling() {
         <div className='col'><button type="button" className="btn btn-danger">Danger</button></div>
       </div>
 
-      <div class="container">
-        <div class="row row-cols-3">
-          <div class="col">
+      <div className="container">
+        <div className="row row-cols-3">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi magnam minus facere quos corporis sequi ab qui nostrum est beatae odio animi quod, amet doloremque accusantium illum eaque debitis.</p>
           </div>
 

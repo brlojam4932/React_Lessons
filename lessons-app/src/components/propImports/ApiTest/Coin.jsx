@@ -2,12 +2,19 @@ import React from 'react';
 
 
 
-function Coin({ id, image, ticker, price, marketCap, tickerId, transaction, balance }) {
+function Coin({ id, image, ticker, price, marketCap, tickerId, transaction, balance, inputValue, setInputValue, handleBuy }) {
 
-
+/*
   const handleBuyClick = (event) => {
     event.preventDefault();
     transaction(true, tickerId);
+  }
+  */
+
+  const handleBuyClick = (event) => {
+    event.preventDefault();
+    handleBuy(tickerId, inputValue);
+    //console.log("id and amount: ", tickerId + inputValue);
   }
 
   const handleSellClick = (event) => {
@@ -24,12 +31,15 @@ function Coin({ id, image, ticker, price, marketCap, tickerId, transaction, bala
         <h4>{ticker}</h4>
         <h4>{price}</h4>
         <h4>{marketCap}</h4>
-        <div class="form-group has-success">
-          <label class="form-label mt-4" for="inputValid">Valid input</label>
-          <input type="text" 
-          value="correct value" 
-          class="form-control is-valid" id="inputValid" />
-          <div class="valid-feedback">Success! You've done it.</div>
+        <div className="form-group has-success">
+          <label className="form-label mt-4" for="inputValid">Valid input</label>
+          <input type="number"
+          required
+          placeholder='Amount'
+          onChange={(e) => setInputValue(e.target.value)}
+          className="form-control is-valid" id="inputValid" />
+          <p>Token:&nbsp;{tickerId}&nbsp;Amount:&nbsp;{inputValue}</p>
+          <div className="valid-feedback">Success! You've done it.</div>
         </div>
         <form action='#' method='POST'>
           <button onClick={handleBuyClick}>buy</button>

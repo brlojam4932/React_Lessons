@@ -11,6 +11,9 @@ function MultApi() {
   const [accountBalance, setAccountBalance] = useState(10000);
   const [showBalance, setShowBalance] = useState(false);
   const [coinData, setCoinData] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [isBuy, setIsBuy] = useState(false);
+  const [isSold, setIsSold] = useState(false);
 
   //const [loading, setLoading] = useState(false);
 
@@ -40,11 +43,37 @@ function MultApi() {
     if (coinData.length === 0) {
       componentDidMount();
     }
-  })
+  });
+
+// const ticketUrl = (`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
+  const handleBuy = async (valueChangeId, amountValue) => {
+    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
+    console.log("Response: ", response);
+    const newPrice = response.data.current_price;
+    console.log(newPrice);
+    const newCoinData = coinData.map((values) => { // copy coinData values into newCoinData, newValues
+      let newValues = {...values};
+
+      if(valueChangeId === values.key) {
+        let amountOfCoin = parseFloat(amountValue);
+        let newAccountBalance = accountBalance - (newPrice * amountOfCoin);
+
+        if(newAccountBalance > 0 && amountValue > 0) {
+          setAccountBalance(newAccountBalance);
+          newValues.balance += amountOfCoin; // if account bal conditions are met, newValues.balance = newValues.balance + amountOfCoin
+        }
+        else {
+          setIsBuy(true);
+        }
+      };
+      return newValues;
+    });
+    setCoinData(newCoinData);
+  }
 
 
-
-  const transaction = (isBuy, valueChangeId) => {
+/*
+ const transaction = (isBuy, valueChangeId) => {
     // if buy, add 1 : if not subtract -1 // need amount and id
     // from accountBalance (usd account)
     // add coin to coinData balance (how many coins in one's account)
@@ -65,6 +94,10 @@ function MultApi() {
     setCoinData(newCoinData)
   };
 
+ */
+
+ 
+
   const handleBrrr = () => {
     setAccountBalance(prevBalance => prevBalance + 1200);
   }
@@ -73,7 +106,7 @@ function MultApi() {
     setShowBalance(prevValue => !prevValue);
   }
 
-
+// in coinlist: {transaction={transaction}}
   return (
     <>
       <h1>Mult API 3</h1>
@@ -87,9 +120,16 @@ function MultApi() {
 
       <CoinList
         coinData={coinData}
-        transaction={transaction}
+      
         showBalance={showBalance}
-        
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        set
+        isBuy={isBuy}
+        isSold={isSold}
+        setIsBuy={setIsBuy}
+        setIsSold={setIsSold}
+        handleBuy={handleBuy}
       />
 
       <div>
