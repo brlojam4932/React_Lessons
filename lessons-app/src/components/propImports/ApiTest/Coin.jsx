@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-function Coin({ id, image, ticker, price, marketCap, tickerId, transaction, balance, inputValue, setInputValue, handleBuy }) {
+function Coin({ id, image, ticker, price, marketCap, tickerId, balance, inputValue, setInputValue, handleBuy, handleSell }) {
 
 /*
   const handleBuyClick = (event) => {
@@ -19,7 +19,7 @@ function Coin({ id, image, ticker, price, marketCap, tickerId, transaction, bala
 
   const handleSellClick = (event) => {
     event.preventDefault();
-    transaction(false, tickerId);
+    handleSell(tickerId, inputValue);
   }
 
 

@@ -14,6 +14,8 @@ function MultApi() {
   const [inputValue, setInputValue] = useState('');
   const [isBuy, setIsBuy] = useState(false);
   const [isSold, setIsSold] = useState(false);
+  //const [insufficientUsdBalMessage, setInsufficientUsdBalMessage] = useState(false);
+  //const [insufficientTokenBalMessage, setInsufficientTokenBalMessage] = useState=(false);
 
   //const [loading, setLoading] = useState(false);
 
@@ -48,22 +50,23 @@ function MultApi() {
 // const ticketUrl = (`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
   const handleBuy = async (valueChangeId, amountValue) => {
     const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
-    console.log("Response: ", response);
-    const newPrice = response.current_price;
-    console.log("New Price: ", newPrice);
+    //console.log("Response: ", response);
+    const newPrice = response?.data?.[0]?.current_price;
+    //console.log("New Price: ", newPrice);
     const newCoinData = coinData.map((values) => { // copy coinData values into newCoinData, newValues
       let newValues = {...values};
-
       if(valueChangeId === values.key) {
         let amountOfCoin = parseFloat(amountValue);
         let newAccountBalance = accountBalance - (newPrice * amountOfCoin);
-
         if(newAccountBalance > 0 && amountValue > 0) {
           setAccountBalance(newAccountBalance);
           newValues.balance += amountOfCoin; // if account bal conditions are met, newValues.balance = newValues.balance + amountOfCoin
+          //setInsufficientUsdBalMessage(false);
+          setIsBuy(true);
         }
         else {
-          setIsBuy(true);
+          //setInsufficientUsdBalMessage(true);
+          setIsBuy(false);
         }
       };
       return newValues;
@@ -71,42 +74,51 @@ function MultApi() {
     setCoinData(newCoinData);
   }
 
+  const handleSell = async (valueChangeId, amountValue) => {
+    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets/?vs_currency=usd&ids=${valueChangeId}`);
+    const newPrice = response?.data?.[0].current_price; // get current price from api
+    const newCoinData = coinData.map((values) => { // newCoinData will equal coinData copied as new values into an Object
+      //copy values into newValues using spread operator
+      let newValues = {...values}; // we have our Object: newValues = {id: name, price: current_price}
+      // if clicked "id" - matches the values.key, then let amountOfCoin equal; amountValue (amount of coins to sell), parseFloat...converterd from JSON string to integers
+      if(valueChangeId === values.key) {
+        let amountOfCoin = parseFloat(amountValue); //ex. {id: bitcoin, price: 44000}
+        // update newAccountBalance: we are selling so we mult the newPrice * the amount of coins and add that to our newAccountBalance. Then return newValues
+        let newAccountBalance = accountBalance + (newPrice * amountOfCoin);
+        // but also add a condition: newAccountBalance > 0 and amount to buy cannot be 0; must be also > 0.
+        if(newAccountBalance > 0 && amountOfCoin > 0) {
+           // update the state: setNewAccountBalance -> to newAccountBalance
+          setAccountBalance(newAccountBalance);
+          // set the newValues.balance equal newValues.balance - the amount Of Coin sold.
+          newValues.balance -= amountOfCoin; // if these conditions met, make the sell: setIsBuy = true and amount of coins will be deducted while value will be added to newAccountBalance
+          // also set insufficient amount of usd to true false
+          //setInsufficientUsdBalMessage(false);
+          setIsBuy(true);
+        } else {
+          // if not true: set to false and setInsuffientUsd to true
+          //setInsufficientUsdBalMessage(true);
+          setIsBuy(false);
+        }  
+      };
+      return newValues; // newValues returned
+    }); // finally, setCoinData to newCoinData. (newCoinData is the current price from the api)
+    setCoinData(newCoinData);
+  }
 
-/*
- const transaction = (isBuy, valueChangeId) => {
-    // if buy, add 1 : if not subtract -1 // need amount and id
-    // from accountBalance (usd account)
-    // add coin to coinData balance (how many coins in one's account)
-    let balanceChange = isBuy ? 1 : -1;
-    const newCoinData = coinData.map((values) => {
-      let newValues = { ...values };
-      if (valueChangeId === values.key) {
-        if (accountBalance > newValues.price) {
-          newValues.balance += balanceChange;
-          setAccountBalance(prevBalance => prevBalance - balanceChange * newValues.price);
-        } else if (!isBuy) {
-          newValues.balance += balanceChange;
-          setAccountBalance(prevBalance => prevBalance + balanceChange * newValues.price);
-        }
-      }
-      return newValues;
-    });
-    setCoinData(newCoinData)
-  };
 
- */
-
- 
 
   const handleBrrr = () => {
     setAccountBalance(prevBalance => prevBalance + 1200);
   }
 
+
+
   const handleToggleChange = () => {
     setShowBalance(prevValue => !prevValue);
   }
 
-// in coinlist: {transaction={transaction}}
+
+
   return (
     <>
       <h1>Mult API 3</h1>
@@ -120,7 +132,6 @@ function MultApi() {
 
       <CoinList
         coinData={coinData}
-      
         showBalance={showBalance}
         inputValue={inputValue}
         setInputValue={setInputValue}
@@ -130,6 +141,7 @@ function MultApi() {
         setIsBuy={setIsBuy}
         setIsSold={setIsSold}
         handleBuy={handleBuy}
+        handleSell={handleSell}
       />
 
       <div>
