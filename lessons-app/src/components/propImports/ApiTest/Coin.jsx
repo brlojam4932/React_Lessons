@@ -1,15 +1,7 @@
 import React from 'react';
 
-
-
 function Coin({ id, image, ticker, price, marketCap, tickerId, balance, inputValue, setInputValue, handleBuy, handleSell }) {
 
-/*
-  const handleBuyClick = (event) => {
-    event.preventDefault();
-    transaction(true, tickerId);
-  }
-  */
 
   const handleBuyClick = (event) => {
     event.preventDefault();

@@ -1,12 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Coin from "./Coin";
 
 function CoinList({ transaction, coinData, inputValue, setInputValue, handleBuy, handleSell }) {
+
+  const [search, setSearch] = useState("");
+
+  const filteredCoins = coinData.filter(coin => (
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  ));
+    
+
+  const handleCoinsChange = (e) => {
+    setSearch(e.target.value);
+  }
+
   return (
 
-   
-    <div className='coins'>
-        {coinData.map(({ key, name, image, ticker, price, balance }) =>
+   <>
+    <form>
+      <input
+      type="text"
+      placeholder='search'
+      onChange={handleCoinsChange}
+       />
+    </form>
+
+
+     <div className='coins'>
+        {filteredCoins.map(({ key, name, image, ticker, price, balance }) =>
           <Coin key={key}
             name={name}
             image={image}
@@ -23,6 +44,8 @@ function CoinList({ transaction, coinData, inputValue, setInputValue, handleBuy,
         )}
 
       </div>
+   </>
+  
   )
 }
 
