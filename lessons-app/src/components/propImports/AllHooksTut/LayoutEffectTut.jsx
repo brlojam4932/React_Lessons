@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useEffect, useRef} from 'react';
 
 // it renders the layoutEffect first, then useEffect second
 
-// https://youtu.be/LlvBzyy-558?t=3168
+// https://youtu.be/LlvBzyy-558?t=2854
 
 function LayoutEffectTut() {
   const inputRef = useRef(null);

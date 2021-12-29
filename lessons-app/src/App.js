@@ -32,6 +32,7 @@ import ContextTut from './components/propImports/AllHooksTut/ContextTut';
 import MultApi from './components/propImports/ApiTest/MultApi';
 import MultApi2 from './components/propImports/ApiTest/MultApi2';
 import MultApi3 from './components/propImports/ApiTest/MultApi3';
+import Callback from './components/propImports/Callback';
 
 
 // simple react snippets: sfc - A stateless funcitonal component
@@ -113,6 +114,8 @@ export default function App(props) {
               <ImpHandleTut />
               <br /><br />
               <ContextTut />
+              <br /><br />
+              <Callback />
               <br /><br />
             </Route>
             <Route path="/styling">

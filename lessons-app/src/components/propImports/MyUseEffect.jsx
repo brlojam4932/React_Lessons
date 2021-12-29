@@ -9,11 +9,7 @@ function MyUseEffect() {
 
   const [minVal, setMinVal] = useState(0);
   const [maxVal, setMaxVal] = useState(10);
-  const [first10, setFirst10] = useState(minVal, maxVal);
 
-  const handleFirstTenBtn = () => {
-    setFirst10(minVal, maxVal);
-  }
 
   const linkUseEffect = 'https://youtu.be/0ZJgIjIuY7U';
 
@@ -58,14 +54,11 @@ function MyUseEffect() {
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('users')} >Users</button>
         <button type="button" className="btn btn-primary" onClick={() => setResourceType('comments')} >Comments</button>
 
-        <p>
-            First Ten: <span> <h1>{first10}</h1></span>
-          </p>
+      
         <p>Min: {minVal}</p>
         <input type='number' value={minVal} onChange={(e) => setMinVal(e.target.value)} ></input>
         <p>Max: {maxVal}</p>
         <input type="number" value={maxVal} onChange={(e) => setMaxVal(e.target.value)} ></input>
-        <button onClick={(e) => handleFirstTenBtn(e.target.value)} >First 10</button>
       </div>
       
       <h1> {resourceType} {resourceType.length} </h1>
